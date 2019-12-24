@@ -1,0 +1,26 @@
+\chapter{実装}
+\label{chap:system}
+
+本章では「Web上の文章を成形すること」の定義を明確にした上で、
+その実装形態である「ReaderLint」の要件と設計について述べる。
+
+\section{システムの定義}
+
+2.4にて示した文章の成形問題を解決するための要件は以下の3つであると仮定する。
+  
+\begin{enumerate}
+	\item 行頭、行末に並ぶべきではない禁則が発生した場合に補正を行う(禁則処理)
+	\item 書き手側がつけた改行が文章の段落位置が読み手側から見たときに可読性を損ねていた場合には操作を行う。
+	\item 上記3つを書き手側の意図(改行による段落生成など)、文意を損ねずに行う
+\end{enumerate}
+
+
+\section{基本構成}
+
+\subsection{DOMに入る文字数の計測}
+\subsubsection{canvas} 
+\subsection{文章解析}
+\subsubsection{AST}
+\subsection{文節の解析}
+\subsubsection{tinySegmenter}
+  
