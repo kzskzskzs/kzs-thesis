@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.7.1-161114-2.6 (utf8.euc) (TeX Live 2017/Debian) (preloaded format=platex 2019.12.23)  24 DEC 2019 18:42
+This is e-pTeX, Version 3.14159265-p3.7.1-161114-2.6 (utf8.euc) (TeX Live 2017/Debian) (preloaded format=platex 2019.12.23)  20 JAN 2020 15:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -221,6 +221,32 @@ File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 Missing character: There is no ^^e2 in font cmr10!
 Missing character: There is no ^^bd in font cmr10!
 Missing character: There is no ^^82 in font cmr10!
+[1
+
+
+
+]
+File: image/01/img1.png Graphic file (type bmp)
+<image/01/img1.png>
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <9> on input line 31.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 31.
+File: image/01/img3.jpg Graphic file (type bmp)
+<image/01/img3.jpg>
+File: image/01/img4.png Graphic file (type bmp)
+<image/01/img4.png>
+
+Overfull \hbox (23.99998pt too wide) in paragraph at lines 34--49
+[][][][] 
+ []
+
+[2]
+File: image/01/img2.png Graphic file (type bmp)
+<image/01/img2.png>
+File: image/01/img5.png Graphic file (type bmp)
+<image/01/img5.png>
+ [3]
 Missing character: There is no ^^e2 in font cmr10!
 Missing character: There is no ^^80 in font cmr10!
 Missing character: There is no ^^83 in font cmr10!
@@ -251,44 +277,65 @@ Missing character: There is no ^^83 in font cmr10!
 Missing character: There is no ^^e2 in font cmr10!
 Missing character: There is no ^^bd in font cmr10!
 Missing character: There is no ^^82 in font cmr10!
-Missing character: There is no ^^e2 in font cmr10!
-Missing character: There is no ^^80 in font cmr10!
-Missing character: There is no ^^83 in font cmr10!
-Missing character: There is no ^^e2 in font cmr10!
-Missing character: There is no ^^bd in font cmr10!
-Missing character: There is no ^^82 in font cmr10!
-) [1
-
-
-
-]
+) [4]
 \openout2 = `02.aux'.
 
  (./02.tex
 第 2 章
-LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <12> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 12.
-LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <12> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 12.
-) [2
+[5
 
 
 
 ]
+File: image/02/img1.png Graphic file (type bmp)
+<image/02/img1.png>
+ [6]
+File: image/02/img2.png Graphic file (type bmp)
+<image/02/img2.png>
+File: image/02/img3.png Graphic file (type bmp)
+<image/02/img3.png>
+ [7] [8]
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <12> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 85.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <12> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 85.
+ [9]) [10]
 \openout2 = `03.aux'.
 
  (./03.tex
 第 3 章
-) [3
+[11
 
 
 
 ]
+File: image/03/img0.png Graphic file (type bmp)
+<image/03/img0.png>
+File: image/03/img1.png Graphic file (type bmp)
+<image/03/img1.png>
+ [12] [13]
+File: image/03/img2.png Graphic file (type bmp)
+<image/03/img2.png>
+File: image/03/img3.png Graphic file (type bmp)
+<image/03/img3.png>
+ [14]
+File: image/03/img4.png Graphic file (type bmp)
+<image/03/img4.png>
+ [15]
+File: image/03/img6.png Graphic file (type bmp)
+<image/03/img6.png>
+ [16]
+File: image/03/img5.png Graphic file (type bmp)
+<image/03/img5.png>
+ [17]
+File: image/03/img7.png Graphic file (type bmp)
+<image/03/img7.png>
+) [18]
 \openout2 = `04.aux'.
 
  (./04.tex
 第 4 章
-) [4
+) [19
 
 
 
@@ -297,30 +344,34 @@ LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <12> not available
 
  (./05.tex
 第 5 章
-) [5
+) [20
 
 
 
 ]
 \openout2 = `06.aux'.
 
- (./06.tex
-第 6 章
-) [6
 
-
-
-]
+No file 06.tex.
 \openout2 = `90_acknowledgment.aux'.
 
- (./90_acknowledgment.tex) [7
+(./90_acknowledgment.tex) [21
+
+
 
 
 
 ]
 \openout2 = `91_bibliography.aux'.
 
- (./91_bibliography.tex) [8
+ (./91_bibliography.tex
+Missing character: There is no ^^e2 in font cmr10!
+Missing character: There is no ^^80 in font cmr10!
+Missing character: There is no ^^93 in font cmr10!
+Missing character: There is no ^^e2 in font cmr10!
+Missing character: There is no ^^80 in font cmr10!
+Missing character: There is no ^^93 in font cmr10!
+) [22
 
 
 
@@ -332,12 +383,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 2417 strings out of 494735
- 32972 string characters out of 6176125
- 125153 words of memory out of 5000000
- 5846 multiletter control sequences out of 15000+600000
- 17646 words of font info for 71 fonts, out of 8000000 for 9000
+ 2507 strings out of 494735
+ 34386 string characters out of 6176125
+ 125163 words of memory out of 5000000
+ 5912 multiletter control sequences out of 15000+600000
+ 19611 words of font info for 80 fonts, out of 8000000 for 9000
  264 hyphenation exceptions out of 8191
- 26i,4n,49p,223b,219s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 28i,11n,49p,318b,419s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on root.dvi (13 pages, 15124 bytes).
+Output written on root.dvi (27 pages, 52672 bytes).
