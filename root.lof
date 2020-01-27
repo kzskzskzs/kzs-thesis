@@ -1,21 +1,27 @@
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1.1}{\ignorespaces スマホの画面の比較}}{2}
-\contentsline {figure}{\numberline {1.2}{\ignorespaces Androidにおける}}{2}
-\contentsline {figure}{\numberline {1.3}{\ignorespaces PCブラウザにおける}}{2}
-\contentsline {figure}{\numberline {1.4}{\ignorespaces 単語の途中で折り返しが発生している例}}{3}
-\contentsline {figure}{\numberline {1.5}{\ignorespaces ひとまとまりの文意を損ねている例}}{4}
+\contentsline {figure}{\numberline {1.1}{\ignorespaces スマホの画面の比較}}{2}{figure.1.1}
+\contentsline {figure}{\numberline {1.2}{\ignorespaces PCとスマートフォンで同じ文章を表示した比較}}{3}{figure.1.2}
+\contentsline {figure}{\numberline {1.3}{\ignorespaces ひとまとまりの文意を損ねている例}}{3}{figure.1.3}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces 文節を分断しない改行レイアウト}}{6}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Budouの動作イメージ}}{7}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces mikan.jsのデモ画面にて記号やURLを表示した例}}{8}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces テキスト文の上の注視点の位置と停留時間（msec）の一例}}{6}{figure.2.1}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces 文節を分断しない改行レイアウト}}{7}{figure.2.2}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces ハッシュタグを用いたメタデータを埋め込んだ投稿の例}}{8}{figure.2.3}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces emojiを利用した文章装飾の例}}{8}{figure.2.4}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces 改行により見出しを分けた例}}{9}{figure.2.5}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Budouの動作イメージ}}{10}{figure.2.6}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces mikan.jsのデモ画面にて記号やURLを表示した例}}{10}{figure.2.7}
+\contentsline {figure}{\numberline {2.8}{\ignorespaces EasyReaderを用いた例}}{11}{figure.2.8}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces コンテキストメニュー}}{13}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces DOM選択モード}}{14}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces 文章の再形成が行われた画面}}{14}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces 横幅に調整をかける前}}{15}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces 横幅に調整をかけた後}}{15}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces 文節ごとの改行処理}}{16}
-\contentsline {figure}{\numberline {3.7}{\ignorespaces テキストをAST化し見やすくしたもの}}{17}
-\contentsline {figure}{\numberline {3.8}{\ignorespaces HTMLタグ内の文章を分けて処理する図}}{18}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces 文章の再形成が行われた画面}}{15}{figure.3.1}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces コンテキストメニュー}}{16}{figure.3.2}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces 幅の大きいDOMに対して施行後}}{16}{figure.3.3}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces DOM選択モード}}{18}{figure.3.4}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces 文節ごとの改行処理}}{19}{figure.3.5}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces HTMLタグ内の文章を分けて処理する図}}{21}{figure.3.6}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces 字詰めを行なった図}}{22}{figure.3.7}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces ReaderLint後にウインドウサイズを変更した場合}}{22}{figure.3.8}
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces 両端揃えを行なった文章レイアウト}}{26}{figure.4.1}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces TinySegmenterを用いた日本語分かち書きの精度}}{27}{figure.4.2}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces kuromojiを用いた分かち書きの精度}}{27}{figure.4.3}
 \addvspace {10\p@ }

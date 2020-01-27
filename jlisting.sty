@@ -151,24 +151,46 @@
 \usepackage{jlisting}[2006/02/20]
 \usepackage{url} 
 \usepackage{verbatim}
-\usepackage[deluxe]{otf}
 \usepackage{lmodern}
 \usepackage{bmpsize}
 \usepackage[dvipdfmx, bookmarkstype=toc, colorlinks=false, pdfborder={0 0 0}, bookmarks=true, bookmarksnumbered=true]{hyperref}
 \usepackage{pxjahyper}
+\usepackage{color}
+\usepackage{soul}
 \makeatletter
 \renewcommand{\baselinestretch}{0.5}
+
+%source code setting
+\lstset{
+  basicstyle={\ttfamily},
+  identifierstyle={\small},
+  commentstyle={\smallitshape},
+  keywordstyle={\small\bfseries},
+  ndkeywordstyle={\small},
+  stringstyle={\small\ttfamily},
+  frame={tb},
+  breaklines=true,
+  columns=[l]{fullflexible},
+  numbers=left,
+  xrightmargin=0zw,
+  xleftmargin=3zw,
+  numberstyle={\scriptsize},
+  stepnumber=1,
+  numbersep=1zw,
+  lineskip=-0.5ex
+
+}
+
+
 % Original Macros
 \def\email#1{\gdef\@email{\texttt{#1}}}
 \def\homepage#1{\gdef\@homepage{\texttt{#1}}}
 \def\mac#1{\textsf{#1}}
 \def\URL#1{\texttt{#1}}
 \def\src#1{\texttt{#1}}
-
 % Dvipdfmx.def 
 \def\dvipdfmxDefi{http://tex.dante.jp/ok/dvipdfmx/}
 \def\dvipdfmxDefii{http://ftp.ktug.or.kr/KTUG/dvipdfmx/contrib/latex/}
-
 \IfFileExists{dvipdfmx.def}{%
    \let \IfDvipdfmxDef = \empty \relax}{%
    \typeout{^^Jget dvipdfmx.def at \dvipdfmxDefi^^J
@@ -176,7 +198,6 @@
    \def\IfDvipdfmxDef{Get \src{dvipdfmx.def} at \URL \dvipdfmxDefii \\ 
       or \URL \dvipdfmxDefi.}%
 }
-
 % Author Info
 \author   {Th\'or Watanabe\thanks \@email \space \thanks \@homepage}
 \title    {\mac{jlisting.sty}\\
@@ -184,29 +205,24 @@
 \email    {thor@tex.dante.jp}
 \homepage {http://tex.dante.jp/typo/}
 \date     {2006/02/20}
-
 \makeatother
-
 \begin{document}
 \maketitle
 %\IfDvipdfmxDef
 \special{pdf:mapline rml H SourceHanSans-ExtraLight.otf}
-\documentclass[14pt]{jarticle}
+\documentclass[14pt]{jsarticle}
 \section{ちょっとした説明}% Short Description
  
 奥村晴彦氏の掲示板の「汎用的な浮動体」という一連の書き込みから
 転載しました。
-
 \begin{quote}
  \url{http://http://cise.edu.mie-u.ac.jp/~okumura/texfaq/qa/21172.html}\\
  \url{http://http://cise.edu.mie-u.ac.jp/~okumura/texfaq/qa/21184.html}\\
  \url{http://http://cise.edu.mie-u.ac.jp/~okumura/texfaq/qa/21189.html}\\
  \url{http://http://cise.edu.mie-u.ac.jp/~okumura/texfaq/qa/21197.html}
 \end{quote}
-
  Copyright は吉永哲美氏にあるのだと思います．
- 
-\section{更新履歴}% ChageLogs
+
 
 \begin{description}
  \item[ver.~0.1 (2004/03/24)]
@@ -214,7 +230,6 @@
  \item[ver.~0.2 (2006/02/20)] 
    \verb|\lst@breakProcessOther| 命令の定義の追加．
 \end{description}
-
 \section{ソースコード}
 \par\narrowbaselines
 \verbatiminput{jlisting.sty}
