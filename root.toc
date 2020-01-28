@@ -24,7 +24,7 @@
 \contentsline {subsection}{\numberline {3.4.1}DOMの取得}{17}{subsection.3.4.1}
 \contentsline {subsection}{\numberline {3.4.2}文章の折返し箇所の自動検出}{17}{subsection.3.4.2}
 \contentsline {subsubsection}{\numberline {(1)}日本語分かち書き}{18}{subsubsection.3.4.2.1}
-\contentsline {subsubsection}{\numberline {(2)}canvas要素を用いた文字幅の計測}{19}{subsubsection.3.4.2.2}
+\contentsline {subsubsection}{\numberline {(2)}canvas要素を用いた文字幅の計測}{18}{subsubsection.3.4.2.2}
 \contentsline {subsection}{\numberline {3.4.3}ASTを用いた文章解析}{19}{subsection.3.4.3}
 \contentsline {subsection}{\numberline {3.4.4}視認性を損ねた改行位置の処理}{21}{subsection.3.4.4}
 \contentsline {subsection}{\numberline {3.4.5}ウィンドウサイズ変更による改行位置のズレの検出}{22}{subsection.3.4.5}

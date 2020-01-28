@@ -85,7 +85,7 @@ document.elementFromPointによりカーソルがホバーしているDOMを検�
 \begin{figure}[H]
     \centering
     \label{fig:image10}
-    \includegraphics[width=0.7\columnwidth]{image/03/img1.png}
+    \includegraphics[width=0.5\columnwidth]{image/03/img1.png}
     \caption[DOM選択状態] {DOM選択状態}
 \end{figure}
 
@@ -103,8 +103,8 @@ document.elementFromPointによりカーソルがホバーしているDOMを検�
 \begin{figure}[H]
     \centering
     \label{fig:image14}
-    \includegraphics[width=0.6\columnwidth]{image/03/img6.png}
-	\caption[文節ごとの改行処理]{文節ごとの改行処理]}
+    \includegraphics[width=0.7\columnwidth]{image/03/img6.png}
+	\caption[文節ごとの改行処理]{文節ごとの改行処理}
 \end{figure}
 
 この方法を実装するには日本語の分かち書きにより文節ごとに分け,各文節の描画幅を予測することが必要となる.
@@ -264,7 +264,7 @@ ASTを簡略化して表示した図である。
     \centering
     \label{fig:resize}
     \includegraphics[width=0.7\columnwidth]{image/03/img9.png}
-	\caption[ReaderLint後にウインドウサイズを変更した場合]{ReaderLint後にウインドウサイズを変更した場合}
+	\caption[ReaderLint後にウインドウサイズを変更した場合]{ReaderLint後にウインドウサイズを変更した場合\footnotemark[8]}
 \end{figure}
 
 このようなケースへの対策のため.変更前の文章をもとに新たに変更になったDOMの横幅をもとに改行レイアウト処理をかける必要がある.
@@ -272,6 +272,10 @@ ASTを簡略化して表示した図である。
 変化前の原文をvalueとしたJSONやDOMのクラス名,タグ等が参照可能であるJSONを書き込んだ.このJSONを用いてブラウザウインドウのサイズ変更を検知した際に
 変更後のDOMのサイズから再び改行処理を加えることが可能となった.以下はデータ構造の本文該当箇所(innerHTMLの項目)を簡略化して表示したものである.
 本来のデータはinnerHTMLの箇所には変更後の文章全文が追加されており,参照が可能となっている.
+
+\footnotetext[8]{参考: 
+	\protect\url {https://anond.hatelabo.jp/20200112130927}
+}
 
 \newpage
 
