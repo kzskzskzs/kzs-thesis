@@ -142,10 +142,14 @@ HTML要素である.canvasが提供する機能のうち2DcontextAPI.measureText
 \subsection{ASTを用いた文章解析}
 対象として選んだ文章にはDOMの内部にはリンク,画像,改行といった平文以外の文字列が存在するため,
 あらかじめ文章の種類を分別する前処理を挟んだ上で,改行レイアウト処理を行う必要があった.
-文章の種類を分別する手法として,今回はAST(抽象木構造,Abstract Syntax Tree)を用いる.
+文章の種類を分別する手法として,今回はAST\footnotemark[4]を用いる.
 ASTとは本来はプログラミング言語の静的解析やそれに基づいた処理を行う際に文字列からパースされるデータ構造である.
 データ構造としてあらかじめ文章の種類を分けたうえで,その種類ごとに加える編集を分ける,
 という前処理を行なった.以下はASTとして処理された文章をJSON形式で出力したものを簡略化して表示したものである.
+
+\footnotetext[4]{
+    Abstract Syntax Tree, 抽象木構造
+}
 
 \newpage
 \begin{figure}[H]
@@ -203,9 +207,10 @@ ASTとは本来はプログラミング言語の静的解析やそれに基づ�
 
 今回利用したASTライブラリは,実際に文章としてレンダリングされた箇所と,DOM内で記述されるHTMLタグの内容とを分別して
 ASTを出力するtextlint/markdown-to-astに改行箇所を示すエスケープシーケンス　$\backslash$n
-を検知する仕様に変更したものと\footnotemark[4],AST化した文章の種類ごとにその文字列に施す処理を記述できるtextlint/ast-to-traverseを使用した.\footnotemark[5]
-\footnotetext[4]{\protect\url{https://github.com/textlint/textlint/tree/master/packages/@textlint/markdown-to-ast}}
-\footnotetext[5]{\protect\url{https://github.com/textlint/textlint/tree/master/packages/@textlint/ast-traverse}}
+を検知する仕様に変更したものと\footnotemark[5],AST化した文章の種類ごとにその文字列に施す処理を記述できるtextlint/ast-to-traverseを使用した.\footnotemark[6]
+
+\footnotetext[5]{\protect\url{https://github.com/textlint/textlint/tree/master/packages/@textlint/markdown-to-ast}}
+\footnotetext[6]{\protect\url{https://github.com/textlint/textlint/tree/master/packages/@textlint/ast-traverse}}
 
 ASTによって文章をデータ構造としてパースする前処理の利点は,ブラウザ上にレンダリングされているリンクやハッシュタグ,
 といったHTML要素に由来する表記を非破壊的に監査できる点にある.HTMLタグの中身である文章としてレンダリングされている
@@ -217,10 +222,10 @@ ASTを簡略化して表示した図である。
     \centering
     \label{fig:image16}
     \includegraphics[width=0.7\columnwidth]{image/03/img7.png}
-	\caption[HTMLタグ内の文章を分けて処理する図]{HTMLタグ内の文章を分けて処理する図} \footnotemark[6]
+	\caption[HTMLタグ内の文章を分けて処理する図]{HTMLタグ内の文章を分けて処理する図} \footnotemark[7]
 \end{figure}
 
-\footnotetext[6]{使用サイト:\protect\url{https://www.hayakawabooks.com/n/ncdfb31dc4e46?creator_urlname=hayakawashobo01}}
+\footnotetext[7]{使用サイト:\protect\url{https://www.hayakawabooks.com/n/ncdfb31dc4e46?creator_urlname=hayakawashobo01}}
 
 \begin{lstlisting}{AST.json}
     {
