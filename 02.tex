@@ -51,7 +51,7 @@
 
 \begin{figure}[H]
     \centering
-    \label{fig:image6}
+    \label{fig:layout}
     \includegraphics[width=0.6\columnwidth]{image/02/img1.png}
     \caption[文節を分断しない改行レイアウト] {文節を分断しない改行レイアウト\protect\cite{小林14}より引用}
 \end{figure}
@@ -69,7 +69,7 @@
 文字列をラベルとしたメタデータを挿入することが可能となる仕様も存在し,広く扱われている.
 \begin{figure}[H]
     \centering
-    \label{fig:image8}
+    \label{fig:hush}
     \includegraphics[width=0.6\columnwidth]{image/02/img_3.png}
     \caption[ハッシュタグを用いたメタデータを埋め込んだ投稿の例]{ハッシュタグを用いたメタデータを埋め込んだ投稿の例\footnotemark[1]}
 \end{figure}
@@ -84,7 +84,7 @@ Emojiとは特定のユニコードを読み込むことで文章中に埋め込
 SNS上や砕けた文体の文章では多用され, 句読点の代用として使用されることもある.
 \begin{figure}[H]
     \centering
-    \label{fig:image8}
+    \label{fig:emoji}
     \includegraphics[width=0.6\columnwidth]{image/02/img_1.png}
     \caption[emojiを利用した文章装飾の例]{emojiを利用した文章装飾の例}
 \end{figure}
@@ -98,7 +98,7 @@ SNS上や砕けた文体の文章では多用され, 句読点の代用として
 
 \begin{figure}[H]
     \centering
-    \label{fig:image8}
+    \label{fig:midashi}
     \includegraphics[width=0.6\columnwidth]{image/02/img_4.png}
     \caption[改行により見出しを分けた例] {改行により見出しを分けた例\footnotemark[1]}
 \end{figure}
@@ -121,7 +121,7 @@ Budou\footnotemark[2], mikan.js\footnotemark[3], 読み手のリーディング�
 BudouはPythonで書かれたGoogle製の形態素解析APIであるCloud Natural Language API
 を用いたライブラリであり, テンプレートエンジンのフィルターやビルドツールのタスクとして
 エディターに組み込んで利用する.
-単語の境界判別と構文解析を行い文節を特定し, 文節ごとに特定のHTMLタグを囲むことで, 
+単語の境界判別と構文解析を行い文節を特定し, 文節ごとに特定のHTML要素を囲むことで, 
 文節ごとに文章を分離, 改行を加えることができる.
 懸念点はAPIを叩くためGoogle Cloud APIの設定や通信が必要であるがゆえにローカル環境で完結しない点と, 
 そのリクエストが多くなると料金が発生する点にある.また, 見出し語で用いることを前提としているため, 
@@ -157,7 +157,8 @@ mikan.jsは先述したBudouの問題点を解決するべくtrkbt10氏が開発
 書き手側がSNSやブログのエディター画面では用いることは想定しており, 
 書き手側の不満を解消しているライブラリだと言える.
 
-一方で, 読み手側自身がその閲覧環境に則り, 視認性の高い文章レイアウトを改稿することを支援する, 
+\subsubsection{EasyReader}
+読み手側自身がその閲覧環境に則り, 視認性の高い文章レイアウトを改稿することを支援する, 
 読み手側の不満を解消するというアプローチで視認性を向上させるライブラリとして『EasyReader』\footnotemark[4]
 を紹介する.
 

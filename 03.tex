@@ -4,7 +4,6 @@
 \label{chap:system}
 本章では前章の最後に述べた「読者側の操作で閲覧環境に則り,視認性の高い文章レイアウトを再形成するアプローチ」
 の定義を明確にした上で,その実装形態である「ReaderLint」の要件と設計について述べる.
-
 \newpage
 
 \section{システムの定義}
@@ -20,23 +19,23 @@
 
 \section{ReaderLintの機能}
 ReaderLintはブラウザ上にレンダリングされている文章に対し,文章の折り返し地点が文節として不可分,一文節の途中であった場合,
-その文節前に改行処理を加えることで,文節ごとの改行レイアウトを実現するシステムである.
+その文節前に改行処理を加えることで,文節間を検知した改行レイアウトを自動的に改稿を行うシステムである.
 処理をかける文章はデバイス内のDOMにレンダリングされた文章なのでその表示環境に応じた改行レイアウト処理を行うことができる.
-勿論,これは自身の画面での表示環境に応じて一時的に文章レイアウトを変更しているため,更新すればもとの文章に戻ったり,
-画面サイズの異なる他のデバイスで行なった場合にはまた異なる改行レイアウトとなる.一方で,ReaderLintを使用している状態で画面サイズをリサイズした場合には
-リサイズした後のDOMサイズに対応した改行レイアウトをレンダリングする.
-前章の『Web 上の文章の特色』にて述べた[句点代わりに行われる改行を用いたレイアウト」を取り入れている場合,読み手側ので表示される文章レイアウトにて凹凸があると
-判定された場合は改行を再度行い,違和感を緩和する機能を入れている.
+勿論,これは自身の画面での表示環境に応じて一時的に文章レイアウトを変更しているため,閲読しているページを更新すれば改稿前の文章に戻り,
+画面サイズの異なる他のデバイスで行なった場合にまた異なる改行レイアウトとなる.
+一方で,ReaderLintを使用している状態で画面サイズをリサイズした場合にはリサイズ後のDOMサイズに対応した改行レイアウトをレンダリングする.
+前章の『Web上の文章の特色』にて述べた[句点代わりに行われる改行を用いたレイアウト」を取り入れている場合,読み手側ので表示される文章レイアウトにて
+開業による大きな凹凸があると判定された場合は改行を再度行い,違和感を緩和する機能を入れている.
 
 \begin{figure}[H]
     \centering
     \label{fig:image11}
     \includegraphics[width=0.7\columnwidth]{image/03/img2.png}
-    \caption[文章の再形成が行われた画面]{文章の再形成が行われた画面\footnotemark[0]}
+    \caption[文章の再形成が行われた画面]{文章の再形成が行われた画面\footnotemark[1]}
 \end{figure}
 
-\footnotetext[0]{
-    ツイート文章は夏目漱石『吾輩は猫である』\cite{夏目}から引用
+\footnotetext[1]{
+    ツイート文章は夏目漱石『吾輩は猫である』\cite{夏目}より引用
 }
 
 \section{基本構成}
@@ -54,16 +53,16 @@ ReaderLintのインストール後には左クリックでコンテキストメ�
 
 \begin{figure}[H]
     \centering
-    \label{fig:image9}
+    \label{fig:context}
     \includegraphics[width=0.4\columnwidth]{image/03/img0.png}
     \caption[コンテキストメニュー]{コンテキストメニュー}
 \end{figure}
 
 また,視認性の理由から文章の格納されているDOMのサイズが900pxを超えている場合には,
 900pxに収まるよう調整をかけている.以下の画像は横幅が1345pxであった
-DOMの文章にReaderLintを実行した際の動作である.\footnotemark[1]
+DOMの文章にReaderLintを実行した際の動作である.\footnotemark[2]
 
-\footnotetext[1]{参考: 
+\footnotetext[2]{参考: 
 	\protect\url {https://anond.hatelabo.jp/20200112130927}
 }
 
@@ -81,7 +80,7 @@ ReaderLintを実行するDOMの取得には,コンテキストメニューをク
 document.elementFromPointによりカーソルがホバーしているDOMを検出が可能となる.その状態でクリックしたDOMの横幅が100px以上であり,
 かつ読み手側のブラウザで文章が表示されているか(elenment.textContentとして文章が取得が可能か）を判定し,それらを満たしていた場合に,
 取得を行なう.この際に指定したDOMの親タグ,およびそのDOMにかかっているclass名から,対象となりえるDOMを取得する.
-1つのDOMにて処理が終わったあとには対象DOMを巡回してReaderLintを実行する,という仕様となっている.
+1つのDOMにて処理が終わったあとには対象DOMを巡回してReaderLintを実行するという実装を行なった
 
 \begin{figure}[H]
     \centering
@@ -91,7 +90,7 @@ document.elementFromPointによりカーソルがホバーしているDOMを検�
 \end{figure}
 
 \subsection{文章の折返し箇所の自動検出}
-文節ごとに区切られた改行を行うためには,左詰から開始された文章の一行の横幅が指定したDOMの横幅(width)を超えるタイミング,
+文節ごとに区切られた改行を行うためには,左詰から開始された文章の一行の横幅が指定したDOMの横幅(width)を超える文字,
 文章の折返し箇所を検知する必要がある.現在のWebAPIには日本語の文章を折り返す文字の箇所を自動検知できる,といった仕様は存在しない.
 そのため,一度文章全体に文節ごとに分かち書きを行い,文節ごとに描画幅を計測し,分かれた文字列を文章での並び順に
 配列として格納,一行に含まれる文節ごとの描画幅の総和がDOMサイズを超過した際に,その文節の前に改行文字を挿入し配列に加える,
@@ -114,8 +113,8 @@ document.elementFromPointによりカーソルがホバーしているDOMを検�
 \subsubsection{日本語分かち書き}
 文章に対して文節ごとに区切る分かち書きの,文章を文節ごとに区切る,といった日本語分かち書きを行うライブラリには
 辞書ベースのデータに頼る辞書データ型と,大まかな解析データに頼る辞書なし型の2つに大別される.
-\\今回は辞書なし型であるTinySegmenterを用いた.TinySegmenterとは工藤匠氏が開発し,
-公開しているJavaScript製の日本語分かち書きライブラリである.\footnotemark[2]
+今回は辞書なし型であるTinySegmenterを用いた.TinySegmenterとは工藤匠氏が開発し,
+公開しているJavaScript製の日本語分かち書きライブラリである.\footnotemark[3]
 TinySegmenterには以下の特色がある.
 
 \begin{enumerate}
@@ -124,10 +123,10 @@ TinySegmenterには以下の特色がある.
 	\item 25キロバイトという軽量さ
 	\item くだけた文章表現には弱い一方,辞書データに依存しないため,登録されていない未知語に対して検出率が高い点
 \end{enumerate}
-TinySegmenterはあくまで新聞のデータをコーパスとして機械学習を行なった結果をもとに分かち書き処理を行うため,
+TinySegmenterはあくまで新聞文章のデータコーパスから機械学習を行なったモデルをもとに分かち書き処理を行うため,
 辞書データを用いたものよりもよりも分かち書きの精度は低いとされているが,上記の利点を加味して採用した.
 
-\footnotetext[2]{
+\footnotetext[3]{
 	参照:　\protect\url {http://chasen.org/~taku/software/TinySegmenter/}
 }
 
@@ -147,6 +146,14 @@ HTML要素である.canvasが提供する機能のうち2DcontextAPI.measureText
 ASTとは本来はプログラミング言語の静的解析やそれに基づいた処理を行う際に文字列からパースされるデータ構造である.
 データ構造としてあらかじめ文章の種類を分けたうえで,その種類ごとに加える編集を分ける,
 という前処理を行なった.以下はASTとして処理された文章をJSON形式で出力したものを簡略化して表示したものである.
+
+\newpage
+\begin{figure}[H]
+    \centering
+    \label{fig:ASTofBreak}
+    \includegraphics[width=0.6\columnwidth]{image/03/breakAST.png}
+	\caption[ASTによるBreak検知例]{ASTによるBreak検知例}
+\end{figure}
 
 \begin{lstlisting}[caption=textToAST.json]
     {
@@ -196,24 +203,24 @@ ASTとは本来はプログラミング言語の静的解析やそれに基づ�
 
 今回利用したASTライブラリは,実際に文章としてレンダリングされた箇所と,DOM内で記述されるHTMLタグの内容とを分別して
 ASTを出力するtextlint/markdown-to-astに改行箇所を示すエスケープシーケンス　$\backslash$n
-を検知する仕様に変更したものと\footnotemark[2],AST化した文章の種類ごとにその文字列に施す処理を記述できるtextlint/ast-to-traverseを使用した.\footnotemark[3]
-\footnotetext[2]{\protect\url{https://github.com/textlint/textlint/tree/master/packages/@textlint/markdown-to-ast}}
-\footnotetext[3]{\protect\url{https://github.com/textlint/textlint/tree/master/packages/@textlint/ast-traverse}}
+を検知する仕様に変更したものと\footnotemark[4],AST化した文章の種類ごとにその文字列に施す処理を記述できるtextlint/ast-to-traverseを使用した.\footnotemark[5]
+\footnotetext[4]{\protect\url{https://github.com/textlint/textlint/tree/master/packages/@textlint/markdown-to-ast}}
+\footnotetext[5]{\protect\url{https://github.com/textlint/textlint/tree/master/packages/@textlint/ast-traverse}}
 
 ASTによって文章をデータ構造としてパースする前処理の利点は,ブラウザ上にレンダリングされているリンクやハッシュタグ,
-といったHTML要素に由来する表記を非破壊的に監査できる点にある.
-HTMLタグの中身である文章としてレンダリングされている箇所だけを文節として取り出し描画幅を計測し加算を行なった上で配列にHTMLごとを格納することで,
-挿入されたHTMLタグ内の文字列に改行コードを入れてHTML要素を破壊してしまうことを防止した.以下は文字に埋め込まれたURLリンクと文字とを判別した
+といったHTML要素に由来する表記を非破壊的に監査できる点にある.HTMLタグの中身である文章としてレンダリングされている
+箇所だけを文節として取り出し描画幅を計測し加算を行なった上で配列にHTMLごとを格納することで,挿入されたHTMLタグ内の文字列に
+改行コードを入れてHTML要素を破壊してしまうことを防止した.以下は文字に埋め込まれたURLリンクと文字とを判別した
 ASTを簡略化して表示した図である。
 
 \begin{figure}[H]
     \centering
     \label{fig:image16}
     \includegraphics[width=0.7\columnwidth]{image/03/img7.png}
-	\caption[HTMLタグ内の文章を分けて処理する図]{HTMLタグ内の文章を分けて処理する図} \footnotemark[4]
+	\caption[HTMLタグ内の文章を分けて処理する図]{HTMLタグ内の文章を分けて処理する図} \footnotemark[6]
 \end{figure}
 
-\footnotetext[4]{使用サイト参照:　\protect\url{https://www.hayakawabooks.com/n/ncdfb31dc4e46?creator_urlname=hayakawashobo01}}
+\footnotetext[6]{使用サイト:\protect\url{https://www.hayakawabooks.com/n/ncdfb31dc4e46?creator_urlname=hayakawashobo01}}
 
 \begin{lstlisting}{AST.json}
     {
@@ -237,28 +244,30 @@ ASTを簡略化して表示した図である。
 
 \begin{figure}[H]
     \centering
-    \label{fig:image16}
+    \label{fig:jutsume}
     \includegraphics[width=0.7\columnwidth]{image/03/img10.png}
 	\caption[字詰めを行なった図]{字詰めを行なった図}
 \end{figure}
 
 \subsection{ウィンドウサイズ変更による改行位置のズレの検出}
 文節ごとの改行レイアウト処理を行なったあとDOMのサイズが変更した場合,
-今回の実装形態の場合ではブラウザのWindowサイズが変更した際には文章の折返し箇所が変化するため,
+今回の実装形態の場合ではブラウザのウィンドウサイズが変更した際には文章の折返し箇所が変化するため,
 文章レイアウトの崩れが発生する.
 
 \begin{figure}[H]
     \centering
-    \label{fig:image16}
+    \label{fig:resize}
     \includegraphics[width=0.7\columnwidth]{image/03/img9.png}
 	\caption[ReaderLint後にウインドウサイズを変更した場合]{ReaderLint後にウインドウサイズを変更した場合}
 \end{figure}
 
-このような不備を起こさない対策として.変更前に文章の文字列を新たに変更になったDOMの横幅をもとに改行レイアウト処理をかける必要がある.
+このようなケースへの対策のため.変更前に文章の文字列を新たに変更になったDOMの横幅をもとに改行レイアウト処理をかける必要がある.
 今回はchrome localstorage内に,ReaderLintを実行したのタグデータ,クラス名,ReaderLintをかけた後の文字列をキー,
 変化前の原文をvalueとしたJSONやDOMのクラス名,タグ等をJSON形式に格納した.これを用いてブラウザウインドウのサイズ変更を検知した際に
 変更後のDOMのサイズから再び改行処理を加えることが可能となった.以下はデータ構造の本文該当箇所(innerHTMLの項目)を簡略化して表示したものである.
-本来のデータはinnerHTMLの箇所には変更後の文章全文が追加されている.
+本来のデータはinnerHTMLの箇所には変更後の文章全文が追加されており,参照が可能となっている.
+
+\newpage
 
 \begin{lstlisting}
 {
@@ -266,12 +275,12 @@ ASTを簡略化して表示した図である。
   "tagName": "P",
   "url": "https://tweetdeck.twitter.com/",
   "innerHTML": {
-    "吾輩は猫である.名前はまだ無い.\nどこで生れたかとんと見当がつかぬ...:"吾輩は猫である.名前はまだ無い.どこで生れたかとんと見当がつかぬ...
+    "吾輩は猫である。名前はまだ無い。\nどこで生れたかとんと見当がつかぬ...:"吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ...
   }
 }
 \end{lstlisting}
 
-\subsection{まとめ}
+\section{まとめ}
 文章の視認性を上げるための要件定義を羅列し,その実装形態であるReaderLintと,その実装方法を述べた.
 ブラウザ上に文章が生じされた後,対象となる文章をDOMとして指定し文章とそのDOMの設定を読み込む.文章の解析をASTとして行うことでブラウザ上に文字列して表示される要素と直接は描画されないHTML要素を分け,
 TinySegmenterによって分かち書きされた文節ごとに描画幅を計測した行頭から幅を加算していき,総和がDOMの幅を超過すると予想された文節箇所の前に改行を追加する処理を入れることで文節間改行レイアウトを実装した.
