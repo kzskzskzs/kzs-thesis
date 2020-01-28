@@ -95,7 +95,7 @@ SNS上や砕けた文体の文章では多用され, 句読点の代用として
     \caption[emojiを利用した文章装飾の例]{emojiを利用した文章装飾の例}
 \end{figure}
 
-\subsubsection
+\subsubsection{句点代わりの改行}
 日本語組版に基づく方法以外に文章の文意や内容を切り分ける方法として, 改行を入れる手法が散見される.また, 
 改行を連続して二度以上いれることで一行以上の余白を作り, 文章の意味段落的に分ける手法も存在する.
 後者に関してはスタイルの都合上問題ないと考えられるが,前者に関してはDOMの横幅が大きくとられているゆえ,
@@ -109,11 +109,10 @@ SNS上や砕けた文体の文章では多用され, 句読点の代用として
     \caption[改行により見出しを分けた例] {改行により見出しを分けた例\footnotemark[1]}
 \end{figure}
 
-\section{ライブラリ}
+\subsection{ライブラリ}
 前節のWeb上のテキストの特色を踏まえた上で, 小林らが開発した文節間改行レイアウトを行う
 既存のライブラリとして書き手側で用いる
-Budou\footnotemark[2], mikan.js\footnotemark[3], 読み手のリーディングをサポートする
-『EasyReader』を紹介し, その特色を述べる.
+Budou\footnotemark[2], mikan.js\footnotemark[3],
 
 \footnotetext[2]{
     \protect\url{https://developers-jp.googleblog.com/2016/10/budou.html}
@@ -166,10 +165,8 @@ mikan.jsは先述したBudouの問題点を解決するべくtrkbt10氏が開発
 書き手側の不満を解消しているライブラリだと言える.
 
 \subsection{拡張機能}
-
+読み手が読む文章の視認性上げる拡張機能としてEasyReaderを紹介し, その特色を述べる. \footnotemark[4]
 \subsubsection{EasyReader}
-読み手側の不満を解消するというアプローチで視認性を向上させるライブラリとして『EasyReader』\footnotemark[4]
-を紹介する.
 
 \footnotetext[4]{
     \protect\url{https://chrome.google.com/webstore/detail/easyreader/boamfheepdiallipiieadpmnklbhadhc}
@@ -186,7 +183,8 @@ EasyReaderはGoogle Chromeのブラウザ拡張として配布されているサ
     \caption[EasyReaderを用いた例]{EasyReaderを用いた例}
 \end{figure}
 
-一方,読み手側の環境であらかじめ崩れていた文章レイアウトを表示していた状態で,その文章レイアウトの改稿を行うことを主としたライブラリは見当たらなかった.
+以上のようなライブラリ,及び拡張ツールが存在した
+一方,読み手側の環境であらかじめ崩れていた文章レイアウトを表示していた状態で,その文章レイアウトの改稿を行うことを主としたライブラリ,および拡張機能は見当たらなかった.
 
 \section{まとめ}
 まず, 人間の視覚認知の研究から人が文章を読む際に行う行動について紹介した.
